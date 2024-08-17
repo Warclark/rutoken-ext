@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "Рутокен Плагин 3",
+  "version": "3.0.0",
+  "description": "Плагин для работы с Рутокен",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "nativeMessaging",
+    "https://warclark.github.io/"
+  ],
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "*/popup.html",
+    "chrome-extension://*/rutoken-plugin-demo*",
+    "*/rutoken-plugin-demo*",
+    "https://warclark.github.io/demo-page/",
+    "https://warclark.github.io/extpag/",
+    "demosrc/rutoken-plugin.js",
+    "*/present.js",
+    "*/libs*",
+    "src/webpage.js"
+    
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-rKgaJo4Wq8eFWnoUoVWQ0SUeU3qUWgZxXonmT9QDrhc='; object-src 'self'"
+}
